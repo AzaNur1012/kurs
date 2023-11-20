@@ -23,3 +23,10 @@ def get_operations_executed(data):
 
 
 
+def get_last_num_operations(operation_with_from, num_of_operations):
+    """функция фильтровки пяти последних операций"""
+    operations_sort = sorted(operation_with_from, key=lambda operation: operation["date"], reverse=True)
+    last_five_operations = operations_sort[0:num_of_operations]
+    return last_five_operations
+
+
