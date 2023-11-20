@@ -6,5 +6,14 @@ def test_get_data():
 
 
 
+def test_get_operations_executed(test_data):
+    """тест на функцию фильтрации операций со статусом EXECUTED"""
+    assert len (utils.get_operations_executed(test_data)) == 2
+
+
+
+
+
+
 
 
