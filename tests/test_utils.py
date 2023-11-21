@@ -8,7 +8,7 @@ def test_get_data():
 
 def test_get_operations_executed(test_data):
     """тест на функцию фильтрации операций со статусом EXECUTED"""
-    assert len(utils.get_operations_executed(test_data)) == 2
+    assert len(utils.get_operations_executed(test_data)) == 3
 
 
 
@@ -35,6 +35,6 @@ def test_get_operations_formatted(test_data):
  '            9824.07 USD',
  '\n'
  '            23.03.2018 Открытие вклада\n'
- '             **6952->Счет **2431\n'
+ '             ->Счет **2431\n'
  '            48223.05 руб.']
 

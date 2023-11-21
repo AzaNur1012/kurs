@@ -11,15 +11,8 @@ def get_data(filename):
 
 def get_operations_executed(data):
     """функция которая выделяет операции со статусом EXECUTED"""
-    operations_executed = []
-    for operation in data:
-        if 'state' in operation and operation['state'] == 'EXECUTED':
-            operations_executed.append(operation)
-    operation_with_from = []
-    for operation in operations_executed:
-        if 'from' in operation:
-            operation_with_from.append(operation)
-    return operation_with_from
+    return [operation for operation in data if operation.get('state') == "EXECUTED"]
+
 
 
 
@@ -46,6 +39,8 @@ def get_operations_formatted(last_five_operations):
             else:
                 payment_method_from = f"{payment_method[:4]} {payment_method[4:6]}** *** {payment_method[-4:]}"
             payer_info = " ".join(payer)
+        else:
+            payment_method_from = ""
         recipient = f"{operation['to'].split()[0]} **{operation['to'][-4:]}"
         operation_amount = f"{operation['operationAmount']['amount']} {operation['operationAmount']['currency']['name']}"
         operations_formatted_list.append(f"""
